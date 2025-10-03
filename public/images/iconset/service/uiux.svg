@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="65"
+   height="65"
+   fill="none"
+   version="1.1"
+   id="svg186"
+   sodipodi:docname="uiux.svg"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs190" />
+  <sodipodi:namedview
+     id="namedview188"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="3.6307692"
+     inkscape:cx="26.716102"
+     inkscape:cy="32.5"
+     inkscape:window-width="1920"
+     inkscape:window-height="982"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg186" />
+  <rect
+     width="65"
+     height="65"
+     rx="21"
+     fill="#0A7DFF"
+     id="rect182"
+     style="fill:#0478f9;fill-opacity:1" />
+  <path
+     d="M49 44.571A3.429 3.429 0 0 1 45.571 48H34.143a3.428 3.428 0 0 1-3.429-3.429v-6.857a3.429 3.429 0 0 1 3.429-3.428H45.57A3.429 3.429 0 0 1 49 37.714v6.857Zm-3.429 1.143a1.143 1.143 0 0 0 1.143-1.143v-6.857a1.143 1.143 0 0 0-1.143-1.143H34.143A1.143 1.143 0 0 0 33 37.714v6.857a1.143 1.143 0 0 0 1.143 1.143H45.57ZM35.286 26.286a3.429 3.429 0 0 1-3.429 3.428H20.43A3.429 3.429 0 0 1 17 26.286v-6.857A3.429 3.429 0 0 1 20.429 16h11.428a3.428 3.428 0 0 1 3.429 3.429v6.857Zm-3.429 1.143A1.143 1.143 0 0 0 33 26.286v-6.857a1.143 1.143 0 0 0-1.143-1.143H20.43a1.143 1.143 0 0 0-1.143 1.143v6.857a1.143 1.143 0 0 0 1.143 1.143h11.428Zm13.714 2.285A3.429 3.429 0 0 0 49 26.286v-6.857A3.429 3.429 0 0 0 45.571 16h-2.285a3.429 3.429 0 0 0-3.429 3.429v6.857a3.429 3.429 0 0 0 3.429 3.428h2.285Zm1.143-3.428a1.143 1.143 0 0 1-1.143 1.143h-2.285a1.143 1.143 0 0 1-1.143-1.143v-6.857a1.143 1.143 0 0 1 1.143-1.143h2.285a1.143 1.143 0 0 1 1.143 1.143v6.857ZM26.143 44.57A3.429 3.429 0 0 1 22.714 48H20.43A3.429 3.429 0 0 1 17 44.571v-6.857a3.429 3.429 0 0 1 3.429-3.428h2.285a3.429 3.429 0 0 1 3.429 3.428v6.857Zm-3.429 1.143a1.143 1.143 0 0 0 1.143-1.143v-6.857a1.143 1.143 0 0 0-1.143-1.143H20.43a1.143 1.143 0 0 0-1.143 1.143v6.857a1.143 1.143 0 0 0 1.143 1.143h2.285Z"
+     fill="#fff"
+     id="path184" />
+</svg>

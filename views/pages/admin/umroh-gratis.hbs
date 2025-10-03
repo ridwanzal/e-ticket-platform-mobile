@@ -1,0 +1,80 @@
+<section class="masthead__container">
+   <div class="container">
+      <div class="row">
+         {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+      <div class="row mb-md-5 mb-2 pb-2 pb-md-5">
+         <div class="col col-12 col-md-6 col-xl-3 mb-3 mb-lg-3">
+            {{> components/sidebar}}
+         </div>
+         <div class="col col-12 col-md-9">
+            <h2 class="card__text fw-bold mb-4">Data Pendaftar Umroh Gratis</h2>
+            <table class="table table-hover js-datatable" id="table-pendaftar">
+               <thead class="table-light">
+                  <tr>
+                     <th>Nama</th>
+                     <th>Telepon</th>
+                     <th>Domisili</th>
+                     <th>Umur</th>
+                     <th>Gender</th>
+                     <th>Jawaban</th>
+                     <th>Foto</th>
+                     <th>Tanggal</th>
+                     <th>Aksi</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {{#each umroh_gratis}}
+                  <tr>
+                     <td>{{this.nama}}</td>
+                     <td>{{this.phone_number}}</td>
+                     <td>{{this.domisili}}</td>
+                     <td>{{this.umur}}</td>
+                     <td>{{this.gender}}</td>
+                     <td class="" style="width:240px;line-height:1.8;" title="{{this.jawaban}}">Hover text..</td>
+                     <td>
+                     {{#if this.uploads.length}}
+                        {{#each this.uploads}}
+                           <img src="{{this}}" width="20" height="20" class="me-1 mb-1" style="object-fit: cover; cursor: pointer;" 
+                              data-bs-toggle="modal" data-bs-target="#lightboxModal" data-image="{{this}}" />
+                        {{/each}}
+                     {{else}}
+                        <span>-</span>
+                     {{/if}}
+                     </td>
+                     <td>{{formatTanggalID this.created_at}}</td>
+                     <td>
+                        <span class="text-success">Verified</span>
+                     </td>
+                  </tr>
+                  {{/each}}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</section>
+
+<!-- Bootstrap Modal for Lightbox -->
+<div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img id="lightboxImage" src="" class="img-fluid rounded" alt="Preview">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImage = document.getElementById('lightboxImage');
+
+    lightboxModal.addEventListener('show.bs.modal', function (event) {
+      const trigger = event.relatedTarget;
+      const imageSrc = trigger.getAttribute('data-image');
+      lightboxImage.src = imageSrc;
+    });
+  });
+</script>

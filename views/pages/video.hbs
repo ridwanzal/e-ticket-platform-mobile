@@ -1,0 +1,38 @@
+<div class="container p-3">
+    <h1 class="mb-3 h6 mt-3">Video E-Ibu Cerdas</h1>
+
+    <input type="text" id="searchInput" class="form-control mb-3"
+        placeholder="Cari video...">
+
+    <div id="videoList">
+        {{#each videos}}
+        <div class="mt-2 mb-2 video-card p-2" style="border-bottom: 1px solid #eee;">
+            <div class="row align-items-center">
+                <div class="col-6 col-md-4 ms-0 ps-0">
+                    <div class="ratio ratio-16x9">
+                        <video controls preload="metadata" style="border-radius:8px; width: 100%; height: 100%;">
+                            <source src="{{path}}" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-8 ps-0">
+                    <h6 class="card-title text-dark mb-1" style="margin-bottom: 12px;font-size:13.5px;">
+                        {{title}}
+                    </h6>
+                    {{#if description}}
+                    <small class="text-muted d-block mb-2" style="font-size: 12px;">
+                        {{description}}
+                    </small>
+                    {{/if}}
+                    <a href="{{path}}" target="_blank"
+                        class="btn btn-default d-block text-start btn-sm p-0">Buka Video
+                        <i class="bi bi-play"
+                            style="position: relative; top:0.5px;"></i></a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

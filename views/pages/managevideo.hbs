@@ -1,0 +1,68 @@
+<div class="container">
+  <h5 class="card-title fw-bold text-dark mt-4 mb-3">Upload Video</h5>
+  {{#if flash}}
+  <div class="alert alert-{{flash.type}} alert-dismissible fade show"
+    role="alert">
+    {{{flash.message}}} {{!-- triple braces allow HTML --}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"
+      aria-label="Close"></button>
+  </div>
+  {{/if}}
+  <form action="/services/video/add" method="POST"
+    enctype="multipart/form-data">
+    <div class="form-group mb-2">
+      <label class="form-label fw-semibold  text-dark">Pilih File</label>
+      <input type="file" class="form-control" name="filename" accept="video/*"
+        required>
+    </div>
+
+    <div class="d-grid mt-4">
+      <button type="submit" class="btn btn-primary">
+        Upload
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row">
+    {{#if videos.length}}
+    <h5 class="fw-bold text-dark mt-5 mb-3">Daftar Video</h5>
+    {{#each videos}}
+    <div class="col-md-4 col-sm-6 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h6 class="card-title text-dark fw-semibold">
+            🎬 {{this.filename}}
+          </h6>
+          <p class="text-muted small mb-3">
+            {{this.created_at}}
+          </p>
+
+          <video width="100%" height="180" controls preload="metadata"
+            class="mb-3">
+            <source src="/uploads/{{this.filename}}" type="video/mp4">
+            Browser Anda tidak mendukung video.
+          </video>
+
+          <div class="d-flex justify-content-between gap-3">
+            <a href="/uploads/{{this.filename}}" target="_blank"
+              class="btn btn-sm btn-outline-primary">
+              Lihat
+            </a>
+            <form action="/services/video/delete/{{this.id}}" method="POST"
+              onsubmit="return confirm('Yakin ingin menghapus video ini?');">
+              <button type="submit" class="btn btn-sm btn-outline-danger">
+                Hapus
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <p class="text-muted">Belum ada video yang diunggah.</p>
+    {{/if}}
+  </div>
+</div>

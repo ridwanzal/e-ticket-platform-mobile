@@ -1,0 +1,136 @@
+<section class="masthead__container">
+   <div class="container">
+      <div class="row">
+         {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+      <div class="row mb-md-5 mb-2 pb-2 pb-md-5">
+         <div class="col col-12 col-md-6 col-xl-3 mb-3 mb-lg-3">
+            {{> components/sidebar}}
+         </div>
+         <div class="col col-12 col-md-9">
+            <div class="card__border">
+               <h2 class="card__text fw-bold mb-4">Edit Produk Umroh</h2>
+               <form action="/services/umroh/edit/{{umroh.id}}" method="POST" enctype="multipart/form-data">
+                  <div class="row">
+                     <div class="col-md-4 mb-3">
+                        <label for="name" class="form-label">Nama Paket</label>
+                        <input type="text" class="form-control" name="name" id="name" required value="{{umroh.name}}">
+                     </div>
+                     <div class="col-md-4 mb-3">
+                        <label for="subtitle" class="form-label">Tagline</label>
+                        <input type="text" class="form-control js-article-title" name="subtitle" id="subtitle" value="{{umroh.subtitle}}" required
+                           value="">
+                     </div>
+                     <div class="col-md-4 mb-3">
+                        <label for="thumbnail" class="form-label">Thumbnail (upload baru jika ingin ganti)</label>
+                        <input type="file" class="form-control" name="thumbnail" id="thumbnail">
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="tanggal" class="form-label">Tanggal Berangkat</label>
+                        <input type="date" class="form-control" name="tanggal" id="tanggal" required value="{{umroh.tanggal}}">
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="total_hari" class="form-label">Total Hari</label>
+                        <input type="number" class="form-control" name="total_hari" id="total_hari" required value="{{umroh.total_hari}}">
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="jenis_penerbangan" class="form-label">Jenis Penerbangan</label>
+                        <select class="form-control" name="jenis_penerbangan" required>
+                           <option value="direct" {{#ifEquals umroh.jenis_penerbangan "direct"}}selected{{/ifEquals}}>Direct</option>
+                           <option value="transit" {{#ifEquals umroh.jenis_penerbangan "transit"}}selected{{/ifEquals}}>Transit</option>
+                        </select>
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="maskapai" class="form-label">Maskapai</label>
+                        <select class="form-control" name="maskapai" id="maskapai">
+                           <option value="Saudia Airliness" {{#ifEquals umroh.maskapai "Saudi Airliness"}}selected{{/ifEquals}}>Saudi Airliness</option>
+                           <option value="Qatar Airways" {{#ifEquals umroh.maskapai "Qatar Airways"}}selected{{/ifEquals}}>Qatar Airways</option>
+                           <option value="Emirates" {{#ifEquals umroh.maskapai "Emirates"}}selected{{/ifEquals}}>Emirates</option>
+                           <option value="Etihad Airways" {{#ifEquals umroh.maskapai "Etihad Airways"}}selected{{/ifEquals}}>Etihad Airways</option>
+                           <option value="Turkish Airlines" {{#ifEquals umroh.maskapai "Turkish Airlines"}}selected{{/ifEquals}}>Turkish Airlines</option>
+                        </select>
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="hotel_makkah" class="form-label">Hotel Makkah</label>
+                        <select class="form-control" name="hotel_makkah" id="hotel_makkah" required>
+                           <option value="Maysan Al Mashaer" {{#ifEquals umroh.hotel_makkah "direct"}}selected{{/ifEquals}}>Maysan Al Mashaer</option>
+                           <option value="Anjum" {{#ifEquals umroh.hotel_makkah "direct"}}selected{{/ifEquals}}>Anjum</option>
+                           <option value="Pullman" {{#ifEquals umroh.hotel_makkah "direct"}}selected{{/ifEquals}}>Pullman</option>
+                        </select>
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="hotel_madinah" class="form-label">Hotel Madinah</label>
+                        <select class="form-control" name="hotel_madinah" id="hotel_madinah" required>
+                           <option value="Golden Tulip" {{#ifEquals umroh.hotel_madinah "Golden Tulip"}}selected{{/ifEquals}}>Golden Tulip</option>
+                           <option value="Al Aqeeq" {{#ifEquals umroh.hotel_madinah "Al Aqeeq"}}selected{{/ifEquals}}>Al Aqeeq</option>
+                        </select>
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="hotel_makkah_star" class="form-label">Bintang Hotel Makkah</label>
+                        <select name="hotel_makkah_star" class="form-control" required>
+                           <option value="1" {{#ifEquals umroh.hotel_makkah_star "1"}}selected{{/ifEquals}}>1</option>
+                           <option value="2" {{#ifEquals umroh.hotel_makkah_star "2"}}selected{{/ifEquals}}>2</option>
+                           <option value="3" {{#ifEquals umroh.hotel_makkah_star "3"}}selected{{/ifEquals}}></option>
+                           <option value="4" {{#ifEquals umroh.hotel_makkah_star "4"}}selected{{/ifEquals}}>4</option>
+                           <option value="5" {{#ifEquals umroh.hotel_makkah_star "5"}}selected{{/ifEquals}}>5</option>
+                        </select>
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="hotel_madinah_star" class="form-label">Bintang Hotel Madinah</label>
+                        <select name="hotel_madinah_star" class="form-control" required>
+                           <option value="1" {{#ifEquals umroh.hotel_madinah_star "1"}}selected{{/ifEquals}}>1</option>
+                           <option value="2" {{#ifEquals umroh.hotel_madinah_star "2"}}selected{{/ifEquals}}>2</option>
+                           <option value="3" {{#ifEquals umroh.hotel_madinah_star "3"}}selected{{/ifEquals}}></option>
+                           <option value="4" {{#ifEquals umroh.hotel_madinah_star "4"}}selected{{/ifEquals}}>4</option>
+                           <option value="5" {{#ifEquals umroh.hotel_madinah_star "5"}}selected{{/ifEquals}}>5</option>
+                        </select>
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="paket" class="form-label">Tipe Paket</label>
+                        <select class="form-control" name="paket" required>
+                           <option value="bronze" {{#ifEquals umroh.hotel_madinah_star "bronze"}}selected{{/ifEquals}}>Bronze</option>
+                           <option value="gold" {{#ifEquals umroh.hotel_madinah_star "gold"}}selected{{/ifEquals}}>Gold</option>
+                           <option value="platinum" {{#ifEquals umroh.hotel_madinah_star "platinum"}}selected{{/ifEquals}}>Platinum</option>
+                        </select>
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="harga" class="form-label">Harga</label>
+                        <input type="number" class="form-control" name="harga" id="harga" value="{{umroh.harga}}" required>
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="tagline" class="form-label">Tagline</label>
+                        <input type="text" class="form-control" name="tagline" id="tagline" value="{{umroh.tagline}}" required>
+                     </div>
+
+                     <div class="col-md-4 mb-3">
+                        <label for="starting_from" class="form-label">Keberangkatan Dari</label>
+                        <input type="text" class="form-control" name="starting_from" id="starting_from" value="{{umroh.starting_from}}" required>
+                     </div>
+
+                     <div class="col-md-12 mb-1">
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="4" required>{{umroh.deskripsi}}</textarea>
+                     </div>
+                  </div>
+
+                  <div class="mt-3">
+                     <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                     <a href="/umroh" class="btn btn-sm btn-secondary">Batal</a>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

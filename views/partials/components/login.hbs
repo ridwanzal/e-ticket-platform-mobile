@@ -1,0 +1,39 @@
+<section class="masthead__container" style="margin-top: 200px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-lg-4 col-12">
+        <div class="text-center mb-5">
+          <a href="/" target="_self">
+            <img class="ttw" src="/images/logo-main.svg" width="240"
+              alt="Payung Madinah website" />
+          </a>
+        </div>
+        {{#if flash}}
+          <div class="alert alert-{{flash.type}} alert-dismissible fade show" role="alert">
+            {{{flash.message}}}   {{!-- triple braces allow HTML --}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {{/if}}
+
+        <form method="POST" action="/services/auth">
+          <div class="form-group mb-4">
+            <input type="text" name="credential" class="form-control round-pill"
+              value placeholder="Credential" required />
+          </div>
+          <div class="form-group mb-4">
+            <input type="password" name="password"
+              class="form-control round-pill" value placeholder="Password"
+              required />
+          </div>
+          <div class="form-group mb-4">
+            <button type="submit"
+              class="bt block-desktop blcok-mobile blue">Login</button>
+          </div>
+          <a class="link text-center text-white" target="_slef" href="/">Go to
+            landing page <i class="bi bi-arrow-right ms-2"
+              style="position: ;relative;top:4px;"></i></a>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

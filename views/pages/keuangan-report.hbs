@@ -1,0 +1,97 @@
+<div class="container my-4">
+  <h3 class="mb-3">Laporan Keuangan</h3>
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs tab-finance" id="financeTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pemasukan-tab" data-bs-toggle="tab" data-bs-target="#pemasukan" type="button" role="tab">Pemasukan</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pengeluaran-tab" data-bs-toggle="tab" data-bs-target="#pengeluaran" type="button" role="tab">Pengeluaran</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="investasi-tab" data-bs-toggle="tab" data-bs-target="#investasi" type="button" role="tab">Investasi</button>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content mt-3">
+    <!-- Tabel Pemasukan -->
+    <div class="tab-pane fade show active" id="pemasukan" role="tabpanel">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Keterangan</th>
+            <th>Jumlah</th>
+            <th>Tanggal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each pemasukan}}
+          <tr>
+            <td>{{this.keterangan}}</td>
+            <td class="text-success">Rp {{this.jumlah}}</td>
+            <td>{{this.tanggal}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tabel Pengeluaran -->
+    <div class="tab-pane fade" id="pengeluaran" role="tabpanel">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Keterangan</th>
+            <th>Jumlah</th>
+            <th>Tanggal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each pengeluaran}}
+          <tr>
+            <td>{{this.keterangan}}</td>
+            <td class="text-danger">Rp {{this.jumlah}}</td>
+            <td>{{this.tanggal}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tabel Investasi -->
+    <div class="tab-pane fade" id="investasi" role="tabpanel">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Keterangan</th>
+            <th>Jumlah</th>
+            <th>Tanggal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each investasi}}
+          <tr>
+            <td>{{this.keterangan}}</td>
+            <td class="text-primary">Rp {{this.jumlah}}</td>
+            <td>{{this.tanggal}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Ringkasan -->
+  <div class="tab-summary mt-4">
+    <h5>Ringkasan</h5>
+    <ul>
+      <li>Total Pemasukan: Rp {{summary.total_pemasukan}}</li>
+      <li>Total Pengeluaran: Rp {{summary.total_pengeluaran}}</li>
+      <li>Total Investasi: Rp {{summary.total_investasi}}</li>
+      <li>Saldo Kas: Rp {{summary.saldo}}</li>
+      <li>Total Aset: Rp {{summary.total_aset}}</li>
+    </ul>
+  </div>
+</div>

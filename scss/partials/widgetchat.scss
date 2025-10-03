@@ -1,0 +1,278 @@
+#watzap-floating-sty2 {
+   background: #51cd60;
+   z-index: 999;
+   cursor: pointer;
+   user-select: none;
+   line-height: 1;
+   overflow: hidden;
+   min-width: 40px;
+   max-width: 350px;
+}
+
+#watzap-floating-sty2:before {
+   transition: opacity 0.5s ease;
+   content: "";
+   background-color: rgba(0, 0, 0, 0.05);
+   width: 100%;
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   height: 60px;
+   z-index: 1;
+   opacity: 0;
+}
+
+#watzap-floating-sty2 .watzap-fc-text {
+   position: relative;
+   z-index: 2;
+   color: #fff;
+   font-size: 14px;
+   padding: 15px 15px 15px 20px;
+   font-family: Arial, Sans-serif;
+   vertical-align: sub;
+   max-width: 260px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   float: left;
+}
+
+#watzap-floating-sty2 .watzap-fc-icon {
+   position: relative;
+   z-index: 2;
+   height: 45px;
+   padding: 10px 12px;
+   border-radius: 8px 15px 0 0;
+   background: rgba(0, 0, 0, 0.05);
+   float: right;
+   transition: background-color 0.5s ease;
+   width: auto;
+   padding: 10px;
+}
+
+.watzap-wdg-parent.right {
+   right: 20px;
+   box-sizing: border-box;
+}
+
+.watzap-wdg-parent {
+   position: fixed;
+   bottom: 80px;
+   z-index: 4;
+   transition: all 0.3 ease;
+
+   &:hover {
+      opacity: 0.9;
+   }
+}
+
+.watzap-anim_animated {
+   -webkit-animation-duration: 1s;
+   animation-duration: 1s;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+}
+
+.wa__widget {
+   z-index: 6;
+   background-color: white;
+   position: fixed;
+   z-index: -1;
+   right: 24px;
+   bottom: 159px;
+   min-height: 420px;
+   min-width: 342px;
+   border-radius: 8px;
+   display: none;
+   border: 1px solid #e5e5e5;
+
+   &--container {
+      border-radius: 8px;
+   }
+
+   &--head {
+      background-color: #b19167;
+      min-height: 120px;
+      height: 120px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+
+      .waback {
+         position: absolute;
+      }
+
+      svg {
+         margin-left: 16px;
+         margin-top: 16px;
+         cursor: pointer;
+         color: white;
+         padding: 6px;
+         background-color: #a68354;
+         border-radius: 8px;
+
+         &:hover {
+            background-color: #96764c;
+         }
+      }
+   }
+
+   &--message {
+      color: white;
+      padding-top: 40px;
+      text-align: center;
+   }
+
+   &--content {
+      .items {
+         display: flex;
+         gap: 12px;
+         padding: 12px 16px;
+         text-decoration: none !important;
+         cursor: pointer;
+
+         &:hover {
+            background-color: #eee;
+            *.subtitle,
+            .name,
+            img,
+            .status {
+               text-decoration: none;
+            }
+         }
+
+         img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50px;
+            position: relative;
+         }
+
+         .subtitle {
+            font-size: 12px;
+            color: #777;
+         }
+
+         .name {
+            color: black;
+            font-size: 15px;
+            margin-bottom: 0;
+         }
+
+         .status {
+            color: #aaa;
+            font-size: 12px;
+         }
+      }
+   }
+
+   &--footer {
+      bottom: 0;
+      text-align: center;
+      font-size: 12px;
+      padding-top: 12px;
+      color: #999;
+   }
+}
+
+.dot {
+   height: 6px;
+   width: 6px;
+   position: relative;
+   top: 0px;
+   background-color: #22c790;
+   border-radius: 50%;
+   display: inline-block;
+}
+
+.nav-link {
+   padding: 0.5rem 0;
+   .svg {
+      height: 16px;
+      width: 16px;
+   }
+}
+
+.nav-tabs {
+   .nav-link {
+      padding: 0.5rem 1rem;
+      color: black !important;
+   }
+}
+
+.nav-inform {
+   .nav-link {
+      min-width: 200px;
+   }
+}
+
+.chart-container {
+   position: relative;
+   margin: auto;
+   height: 217px;
+}
+
+.modal-header {
+   border-bottom: none !important;
+}
+
+.table > :not(caption) > * > * {
+   border-bottom: 1px solid #ddd !important;
+}
+
+.img-mitra {
+   img {
+      width: 100%;
+   }
+}
+
+.tab-notables {
+   tbody {
+      border-top-width: 0;
+      border-top-color: unset !important;
+   }
+}
+
+.tab-content {
+   .tab-pane {
+      ul {
+         padding-left: 0 !important;
+      }
+   }
+}
+
+.card-header p {
+   &:last-child {
+      margin-bottom: 0;
+   }
+}
+
+.wwdiget {
+   position: fixed !important;
+}
+
+.ig__widget {
+   position: fixed;
+   bottom: 155px;
+   right: 20px;
+   z-index: 5;
+
+   img {
+      height: 65px;
+      width: 65px;
+
+      &:hover {
+         opacity: 0.9;
+      }
+   }
+}
+
+.watzap-fc-icon {
+   transition: 0.3s all ease-in-out;
+   cursor: pointer;
+   height: 65px !important;
+   width: 65px !important;
+
+   &:hover {
+      opacity: 0.9;
+   }
+}

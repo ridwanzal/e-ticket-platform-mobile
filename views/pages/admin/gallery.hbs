@@ -1,0 +1,46 @@
+<section class="masthead__container">
+   <div class="container">
+      <div class="row">
+         {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+      <div class="row mb-md-5 mb-2 pb-2 pb-md-5">
+         <div class="col col-12 col-md-6 col-xl-3 mb-3 mb-lg-3">
+            {{> components/sidebar}}
+         </div>
+         <div class="col col-12 col-md-9">
+            <form method="POST" action="/services/upload"  enctype="multipart/form-data">
+               <div class="card__border ">
+                     <h2 class="card__text fw-bold mb-4">Galeri</h2>
+                     <div class="form-group mb-3">
+                        <input type="file" name="fileme" class="form-control" placeholder="Link Thumbnail" required/>
+                     </div>
+                     <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+               </div>
+            </form>
+            <div class="card__border ">
+               <table class="table table-bordered table-hover">
+               <thead>
+                     <th>Filename</th>
+                     <th>Path</th>
+                     <th>Tindakan</th>
+               </thead>
+               {{#each blog}}
+               <tbody>
+                  <tr>
+                     <td>{{this.filename}}</td>
+                     <td>{{formatTanggalID this.created_at}}</td>
+                     <td>
+                        <form method="POST" action="/uploader/delete">
+                           <input type="hidden" name="id" value="{{this.id}}">
+                           <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                        </form>
+                     </td>
+                  </tr>
+               </tbody>
+               {{/each}}
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

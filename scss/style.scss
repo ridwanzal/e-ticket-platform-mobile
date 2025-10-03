@@ -1,0 +1,26 @@
+// vendors
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.min.css");
+@import './vendors/bootstrap';
+@import './vendors/animate';
+@import './vendors/swiper';
+@import './vendors/lightbox';
+@import './vendors/aos';
+@import './vendors/tom-select.scss';
+
+// base
+@import './base/var.scss';
+@import './base/reset.scss';
+@import './base/button.scss';
+@import './base/text.scss';
+@import './base/forms.scss';
+
+// partials
+@import './partials/widgetchat.scss';
+@import './partials/admin.scss';
+@import './partials/section.scss';
+@import './partials/card.scss';
+@import './partials/item.scss';
+@import './partials/gotop.scss';
+@import './partials/modal.scss';
+@import './partials/cookies.scss';
+@import './partials/mobile.scss';

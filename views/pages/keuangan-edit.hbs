@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h3>Edit Catatan Keuangan</h3>
+  <form method="POST" action="/keuangan/edit/{{item.id}}">
+    <div class="mb-3">
+      <label class="form-label">Keterangan</label>
+      <input type="text" class="form-control" name="keterangan" value="{{item.keterangan}}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Jumlah</label>
+      <input type="number" class="form-control" name="jumlah" value="{{item.jumlah}}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Tipe</label>
+      <select class="form-select" name="tipe" required>
+        <option value="pemasukan" {{#if (eq item.tipe "pemasukan")}}selected{{/if}}>Pemasukan</option>
+        <option value="pengeluaran" {{#if (eq item.tipe "pengeluaran")}}selected{{/if}}>Pengeluaran</option>
+        <option value="investasi" {{#if (eq item.tipe "investasi")}}selected{{/if}}>Investasi</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Tanggal</label>
+      <input type="date" class="form-control" name="tanggal" value="{{item.tanggal}}" required>
+    </div>
+    <button type="submit" class="btn btn-primary mb-3">Update</button>
+    <a href="/keuangan" class="btn btn-secondary btn-outline">Kembali</a>
+  </form>
+</div>

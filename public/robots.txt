@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /scripts/
+Disallow: /auth/
+Disallow: /login/
+
+Sitemap: https://payungmadinah.id/sitemap.xml

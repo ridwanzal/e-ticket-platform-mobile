@@ -1,0 +1,198 @@
+<section class="masthead__container">
+   <div class="container">
+      <div class="row">
+         {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+      <div class="row mb-md-5 mb-2 pb-2 pb-md-5">
+         <div class="col col-12 col-md-6 col-xl-3 mb-3 mb-lg-3">
+            {{> components/sidebar}}
+         </div>
+         <div class="col col-12 col-md-9">
+            <div class="card__border ">
+               <h2 class="card__text fw-bold mb-4">Tambah Produk Umroh</h2>
+               <form action="/services/umroh/add" method="POST" enctype="multipart/form-data">
+                  <div class="row">
+                     <!-- Nama -->
+                     <div class="col-md-4 mb-3">
+                        <label for="name" class="form-label">Nama Paket</label>
+                        <input type="text" class="form-control js-article-title" name="name" id="name" required
+                           value="">
+                     </div>
+                     <div class="col-md-4 mb-3">
+                        <label for="subtitle" class="form-label">Tagline</label>
+                        <input type="text" class="form-control js-article-title" name="subtitle" id="subtitle" required
+                           value="">
+                     </div>
+                     <div class="col-md-4 mb-3">
+                        <label for="name" class="form-label">Slug</label>
+                        <input type="text" class="form-control form-slug-Artikel" name="slug" id="slug" required readonly
+                           >
+                     </div>
+
+                     <!-- Thumbnail -->
+                     <div class="col-md-4 mb-3">
+                        <label for="thumbnail" class="form-label">Thumbnail</label>
+                        <input type="file" class="form-control" name="thumbnail" id="thumbnail" required>
+                     </div>
+
+                     <!-- Tanggal -->
+                     <div class="col-md-4 mb-3">
+                        <label for="tanggal" class="form-label">Tanggal Berangkat</label>
+                        <input type="date" class="form-control" name="tanggal" id="tanggal" required>
+                     </div>
+
+                     <!-- Total Hari -->
+                     <div class="col-md-4 mb-3">
+                        <label for="total_hari" class="form-label">Total Hari</label>
+                        <input type="number" class="form-control" name="total_hari" id="total_hari" required value="9">
+                     </div>
+
+                     <!-- Jenis Penerbangan -->
+                     <div class="col-md-4 mb-3">
+                        <label for="jenis_penerbangan" class="form-label">Jenis Penerbangan</label>
+                        <select class="form-control" name="jenis_penerbangan" required>
+                           <option value="direct" selected>Direct</option>
+                           <option value="transit">Transit</option>
+                        </select>
+                     </div>
+
+                     <!-- Maskapai -->
+                     <div class="col-md-4 mb-3">
+                        <label for="maskapai" class="form-label">Maskapai</label>
+                        <select class="form-control" name="maskapai" id="maskapai">
+                           <option value="Saudi Airliness">Saudia Airliness</option>
+                           <option value="Qatar Airways">Qatar Airways</option>
+                           <option value="Emirates">Emirates</option>
+                           <option value="Etihad Airways">Etihad Airways</option>
+                           <option value="Turkish Airlines">Turkish Airlines</option>
+                        </select>
+                     </div>
+
+                     <!-- Hotel Makkah -->
+                     <div class="col-md-4 mb-3">
+                        <label for="hotel_makkah" class="form-label">Hotel Makkah</label>
+                        <select class="form-control" name="hotel_makkah" id="hotel_makkah" required>
+                           <option value="Maysan Al Mashaer">Maysan Al Mashaer</option>
+                           <option value="Anjum">Anjum</option>
+                           <option value="Pullman">Pullman</option>
+                        </select>
+                     </div>
+
+                     <!-- Hotel Madinah -->
+                     <div class="col-md-4 mb-3">
+                        <label for="hotel_madinah" class="form-label">Hotel Madinah</label>
+                        <select class="form-control" name="hotel_madinah" id="hotel_makkah" required>
+                           <option value="Golden Tulip">Golden Tulip</option>
+                           <option value="Al Aqeeq">Al Aqeeq</option>
+                        </select>
+                     </div>
+
+                     <!-- Hotel Makkah Star -->
+                     <div class="col-md-4 mb-3">
+                        <label for="hotel_makkah_star" class="form-label">Bintang Hotel Makkah</label>
+                        <select name="hotel_makkah_star" class="form-control" required>
+                           <option value="1">1</option>
+                           <option value="2">2</option>
+                           <option value="3">3</option>
+                           <option value="4">4</option>
+                           <option value="5">5</option>
+                        </select>
+                     </div>
+
+                     <!-- Hotel Madinah Star -->
+                     <div class="col-md-4 mb-3">
+                        <label for="hotel_madinah_star" class="form-label">Bintang Hotel Madinah</label>
+                        <select name="hotel_madinah_star" class="form-control" required>
+                           <option value="1">1</option>
+                           <option value="2">2</option>
+                           <option value="3">3</option>
+                           <option value="4">4</option>
+                           <option value="5">5</option>
+                        </select>
+                     </div>
+
+                     <!-- Paket -->
+                     <div class="col-md-4 mb-3">
+                        <label for="paket" class="form-label">Tipe Paket</label>
+                        <select class="form-control" name="paket" required>
+                           <option value="bronze" selected>Bronze</option>
+                           <option value="gold">Gold</option>
+                           <option value="platinum">Platinum</option>
+                        </select>
+                     </div>
+
+                     <!-- Harga -->
+                     <div class="col-md-4 mb-3">
+                        <label for="harga" class="form-label">Harga</label>
+                        <input type="number" class="form-control" name="harga" id="harga" value="31000000" required>
+                     </div>
+   
+                     <!-- Tagline -->
+                     <div class="col-md-4 mb-3">
+                        <label for="tagline" class="form-label">Tagline</label>
+                        <input type="text" class="form-control" name="tagline" id="tagline" required
+                           value="Paket Umroh Terbaik 2025">
+                     </div>
+
+                     <!-- Starting From -->
+                     <div class="col-md-4 mb-3">
+                        <label for="starting_from" class="form-label">Keberangkatan Dari</label>
+                        <input type="text" class="form-control" name="starting_from" id="starting_from" value="Jakarta"
+                           required></input>
+                     </div>
+
+                     <!-- Deskripsi -->
+                     <div class="col-md-12 mb-1">
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="4" required
+                           value="Example"></textarea>
+                     </div>
+                  </div>
+
+                  <div class="mt-3">
+                     <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+                  </div>
+               </form>
+            </div>
+
+            <div class="table-responsive mt-4">
+               <table class="table table-striped align-middle">
+                  <thead class="table-light">
+                     <tr>
+                        <th>#</th>
+                        <th>Nama Paket</th>
+                        <th>Tanggal</th>
+                        <th>Durasi</th>
+                        <th>Maskapai</th>
+                        <th>Harga</th>
+                        <th>Dari</th>
+                        <th>Tindakan</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {{#each umroh}}
+                     <tr>
+                        <td>{{@index}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.tanggal}}</td>
+                        <td>{{this.total_hari}} hari</td>
+                        <td>{{this.maskapai}}</td>
+                        <td>Rp{{this.harga}}</td>
+                        <td>{{this.starting_from}}</td>
+                        <td>
+                           <a href="/admin/umroh/edit/{{this.id}}" class="btn btn-sm btn-warning">Edit</a>
+                           <form action="/services/umroh/delete/{{this.id}}" method="POST" class="d-inline"
+                              onsubmit="return confirm('Yakin ingin menghapus?')">
+                              <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                           </form>
+                        </td>
+                     </tr>
+                     {{/each}}
+                  </tbody>
+               </table>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</section>

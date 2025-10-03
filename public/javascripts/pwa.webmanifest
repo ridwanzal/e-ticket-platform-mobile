@@ -1,0 +1,16 @@
+{
+   "name": "Payung Madinah - Spesialis Umroh Plus !",
+   "short_name": "Payung Madinah",
+   "description": "Spesialis Umroh Plus",
+   "icons": [
+      {
+         "src": "../../loader.gif",
+         "sizes": "512x512",
+         "type": "image/png"
+      }
+   ],
+   "start_url": "/",
+   "display": "fullscreen",
+   "theme_color": "#764ABC",
+   "background_color": "#764ABC"
+}

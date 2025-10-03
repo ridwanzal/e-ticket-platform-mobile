@@ -1,0 +1,73 @@
+{{> components/navigation}}
+
+<section class="masthead__container">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col col-12 col-md-12 mb-4">
+            {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <div class="row mb-5 pb-2 justify-content-center">
+         <div class="col col-12 col-md-7 mb-4">
+            <img class="w-100 mb-lg-4 mb-3" style="max-height:350px;border-radius:8px;" src="/uploads/{{blog.thumbnail}}" data-aos-mirror="false"
+    data-aos="fade" data-aos-duration="1200" data-aos-delay="0"/>
+            <h1 class="head__text--title mb-2 pb-2" data-aos="fade">
+               {{blog.title}}
+            </h1>
+            <div class="mb-lg-4 mb-3"><img style="position:relative;top:-2px;" class="rounded-circle me-2" width="16"
+                  height="16" src="/images/favicon.png" alt="Administrator" />Di posting oleh {{blog.uploader_name}} -
+               <span>{{formatTanggalID this.created_at}}</span></div>
+            <div class="content__text">
+               {{{blog.content}}}
+            </div>
+            <div class="content__share mt-lg-5 mt-4">
+               <h6 class="fw-bold mb-lg-4 mb-3">Bagikan <i class="ms-2 bi bi-share text-muted"></i></h6>
+               <div class="d-flex gap-4">
+                  <a href="http://www.facebook.com/sharer.php?u={{fullUrl}}" title="Share to Facebook">
+                     <i class="bi bi-facebook fs-2"></i>
+                  </a>
+                  <a href="https://wa.me/?text={{blog.title}}&{{fullUrl}}" title="Share to Whatsapp">
+                     <i class="bi bi-whatsapp text-success fs-2"></i>
+                  </a>
+                  <a class="xtwitter-svg" href="https://twitter.com/intent/tweet?text={{blog.title}}&url={{fullUrl}}" title="Share to Twitter X">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" class="bi bi-twitter-x"
+                        viewBox="0 0 16 16">
+                        <path
+                           d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                     </svg>
+                  </a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url={{fullUrl}}" title="Share to Linkedin">
+                     <i class="bi bi-linkedin fs-2"></i>
+                  </a>
+                  <a href="https://t.me/share/url?url={{fullUrl}}&text={{blog.title}}" title="Share to Telegram">
+                     <i class="bi bi-telegram fs-2"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col col-12 col-md-8 mb-5">
+            <h5 class="mb-4 fw-bold">Baca juga</h5>
+            <div class="pt-3 pb-2 ps-0 pe-0">
+               <div class="row">
+                  {{#each blogs_other}}
+                  <div class="col col-12 col-md-12">
+                     <div class="cardman">
+                        {{linkAnchorsmall '/berita' this.slug this.title}}
+                        <div class="content__text text-muted"
+                           style="color:#444 !important;font-size:.75rem;margin-bottom:12px;border-bottom:1px solid #e5e5e5;">
+                        </div>
+                     </div>
+                     {{/each}}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+</section>
+{{> components/footer}}

@@ -1,0 +1,28 @@
+<div class="container py-4">
+  <h1 class="mb-4 text-left h4">Berita Terkini</h1>
+
+  <div class="row" id="articleList">
+    {{#each articles}}
+      <div class="col-12 mb-3">
+        <div class="h-100" style="border-bottom: 1px solid #eee;">
+          <div class="row align-items-center">
+            <div class="col-md-9 col-9 py-3">
+              <h5 class="card-title mb-1">
+                <a href="{{link}}" target="_blank" class="text-decoration-none text-dark">
+                  {{title}}
+                </a>
+              </h5>
+              <small class="text-muted d-block mb-2">
+                {{source}}{{pubDateStr}}
+              </small>
+            </div>
+
+            <div class="col-md-3 col-3">
+              <img src="/images/article-thumb.jpg" loading="lazy" class="img-fluid rounded-end" alt="{{title}}">
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

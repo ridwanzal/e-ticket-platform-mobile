@@ -1,0 +1,95 @@
+<div class="container p-3">
+  <div class="row g-3"> <!-- g-3 biar ada gap rapi antar card -->
+    <div class="col-12 col-md-4">
+      <div class="finance-summary-card bg-success text-white">
+        <div class="card-body">
+          <h6 class="mb-0">Pemasukan</h6>
+          <p class="summary-amount mb-0">Rp {{money summary.total_pemasukan}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="finance-summary-card bg-danger text-white">
+        <div class="card-body">
+          <h6 class="mb-0">Pengeluaran</h6>
+          <p class="summary-amount mb-0">{{money summary.total_pengeluaran}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="finance-summary-card bg-warning text-dark">
+        <div class="card-body">
+          <h6 class="mb-0">Tabungan/ Investasi</h6>
+          <p class="summary-amount mb-0">{{money summary.total_investasi}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4">
+      <div class="finance-summary-card bg-white text-dark">
+        <div class="card-body">
+          <h6 class="mb-0">Saldo</h6>
+          <p class="summary-amount mb-0">{{money summary.saldo}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4">
+      <div class="finance-summary-card bg-white text-dark">
+        <div class="card-body">
+          <h6 class="mb-0">Aset</h6>
+          <p class="summary-amount mb-0">{{money summary.total_aset}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+      <h5 style="font-size: 14px;">Catatan Keuangan</h5>
+      <a href="/keuangan/add" class="btn-add-keuangan"><i
+          class="bi bi-plus"></i>Tambah Catatan</a>
+      <a href="/keuangan/report" class="btn-add-keuangan"><i class="bi bi-file-earmark-arrow-down"></i> Laporan</a>
+    </div>
+  </div>
+  <!-- Mobile cards (shown on < md) -->
+  <div class="d-md-none">
+    <div class="container">
+ {{#each keuangan}}
+<div class="finance-card mb-3">
+  <div class="finance-card__header d-flex justify-content-between align-items-start">
+    <div>
+      <div class="finance-card__title">{{this.keterangan}}</div>
+      <div class="finance-card__date">{{this.tanggal}}</div>
+    </div>
+
+    {{#if (eq this.tipe "pemasukan")}}
+      <span class="badge bg-success" style="font-size: 10px; font-weight:normal;">Pemasukan</span>
+    {{else if (eq this.tipe "pengeluaran")}}
+      <span class="badge bg-danger" style="font-size: 10px; font-weight:normal;">Pengeluaran</span>
+    {{else if (eq this.tipe "investasi")}}
+      <span class="badge bg-warning text-dark" style="font-size: 10px; font-weight:normal;">Investasi</span>
+    {{else}}
+      <span class="badge text-bg-secondary">Lainnya</span>
+    {{/if}}
+  </div>
+
+  <div class="finance-card__body mt-2">
+    <div class="finance-card__amount">
+      {{money this.jumlah}}
+    </div>
+  </div>
+
+  <div class="finance-card__footer d-flex gap-2 mt-3">
+    <a href="/keuangan/edit/{{this.id}}" class="btn btn-primary btn-sm flex-fill">
+      <i class="bi bi-pencil me-1"></i> Edit
+    </a>
+    <a href="/keuangan/delete/{{this.id}}" class="btn btn-outline-danger btn-sm flex-fill"
+       onclick="return confirm('Hapus data?')">
+      <i class="bi bi-trash me-1"></i> Hapus
+    </a>
+  </div>
+</div>
+{{/each}}
+
+    </div>
+  </div>
+</div>

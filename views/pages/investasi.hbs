@@ -1,0 +1,72 @@
+<div class="container">
+  <h1 class="mb-3 h6 mt-3">Phintraco</h1>
+
+  <input type="text" id="searchInput" class="form-control mb-3"
+    placeholder="Cari video...">
+
+  <div id="videoList">
+    {{#each videos}}
+    <div class="mt-2 mb-2video-card p-2" style="border-bottom: 1px solid #eee;">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-4 ms-0 ps-0 mb-3 me-0 pe-0">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/{{videoId}}"
+              title="{{title}}" allowfullscreen
+              style="border-radius:8px;"
+              loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12 ps-0">
+          <h6 class="card-title text-dark mb-1"
+            style="margin-bottom: 12px;font-size:13.5px;">{{title}}</h6>
+          <small class="text-muted d-block mb-2" style="font-size: 12px;">
+            Dipublikasikan: {{formatDate pubDate}}
+          </small>
+          <a href="{{link}}" target="_blank"
+            class="btn btn-default d-block text-start btn-sm p-0">Tonton di
+            YouTube
+            <i class="bi bi-play"
+              style="position: relative; top:0.5px;"></i></a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+<!-- Fixed download banner -->
+<div class="phin-download" id="phinDownload">
+  <div class="phin-inner">
+    <div class="phin-info">
+      <div class="phin-actions" style="justify-content: space-between;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }">
+        <img class="phin-badge" src="/images/phintracosecuritas.jpg"
+          alt="Get it on Google Play"
+          style="width: 150px;text-align:center;">
+      </div>
+      <p class="title mt-4 mb-2">Profits Anywhere - Phintraco Apps</p>
+      <p class="subtitle mb-0">Unduh aplikasi Android kami di Google Play Store
+        untuk pengalaman terbaik.</p>
+    </div>
+
+    <div class="phin-actions">
+      <!-- Replace href="#" with your Play Store URL -->
+      <a class="phin-badge"
+        href="https://play.google.com/store/apps/details?id=com.pt.sekuritas.profits.anywhere&hl=id"
+        target="_blank" rel="noopener noreferrer"
+        aria-label="Download Phintraco on Google Play">
+        <img src="/images/googleplay.jpg" alt="Get it on Google Play"
+          style="height: 30px;">
+      </a>
+
+      <!-- Optional: small "Open in Play" link text -->
+      <a href="#" target="_blank" rel="noopener noreferrer"
+        class="d-none d-sm-inline small text-decoration-none text-muted"
+        aria-hidden="true">Open in Play Store</a>
+    </div>
+  </div>
+</div>

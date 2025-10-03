@@ -1,0 +1,109 @@
+<section class="masthead__container">
+   <div class="container">
+      <div class="row">
+         {{> components/breadcrumb breadcrumbs=breadcrumbs}}
+      </div>
+      <div class="row mb-md-4 mb-1 pb-2 pb-md-2">
+         <div class="col col-12 col-md-6 col-xl-3 mb-3 mb-lg-3">
+            {{> components/sidebar}}
+         </div>
+         <div class="col col-12 col-md-9">
+            {{#success}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+               Artikel berhasil disimpan.
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {{/success}}
+            <form class="ArtikelCMS" method="POST" action="/services/blog/add" enctype="multipart/form-data">
+               <div class="card__border ">
+                  <h2 class="card__text fw-bold mb-4">Tambah Artikel</h2>
+                  <input type="hidden" name="author_id" value="{{userId}}" />
+                  <label for="name" class="form-label">Thumbnail</label>
+                  <div class="form-group mb-3">
+                     <input type="file" name="thumbnail" class="form-control" placeholder="Link Thumbnail"
+                        style="max-width: 240px;" required />
+                        <small class="text-muted">Max file upload : 200KB (kompres sebelum upload) <a href="https://www.iloveimg.com/compress-image" target="_blank">Link kompres</a></small>
+                  </div>
+                    <label for="name" class="form-label">Judul</label>
+                  <div class="form-group mb-3">
+                     <input type="text" class="form-title-Artikel form-control js-article-title" name="title"
+                        placeholder="Judul Artikel" required />
+                  </div>
+                  <label for="name" class="form-label">Slug</label>
+                  <div class="form-group mb-3">
+                     <input type="text" name="slug" class="form-slug-Artikel form-control"
+                        placeholder="Slug (dibuat otomatis)" readonly required />
+                  </div>
+                  <label for="name" class="form-label">Konten</label>
+                  <div class="form-group mb-3">
+                     <textarea class="form-control" name="content" rows="5" placeholder="Konten" required></textarea>
+                  </div>
+                  <label for="name" class="form-label">Tag</label>
+                  <div class="form-group mb-3">
+                     <input type="text" name="tag" class="form-control" placeholder="Tag (pisahkan dengan koma)"
+                        required />
+                     <small class="text-muted" style="font-size: 10px;">Contoh: Artikel Ilmiah, Berita Madinah,
+                        Makkah</small>
+                  </div>
+                  <label for="name" class="form-label">Nama Uploader</label>
+                  <div class="form-group mb-3">
+                     <input class="form-control" name="uploader_name" rows="3" placeholder="Nama Uploader" required />
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+               </div>
+            </form>
+         </div>
+      </div>
+      <div class="row mb-md-5 mb-2 pb-2 pb-md-5">
+         <div class="col col-12 col-lg-9 offset-lg-3">
+            <div class="table-responsive">
+               <table class="table">
+                  <tr>
+                     <th>No</th>
+                     <th>Thumbnail</th>
+                     <th>Judul</th>
+                     <th>Tag</th>
+                     <th>Konten</th>
+                     <th>Uploader</th>
+                     <th>Tindakan</th>
+                  </tr>
+                  {{#each data}}
+                  <tr>
+                     <td>{{incr @index}}</td>
+                     <td>
+                        <img loading="lazy" src="/uploads/{{this.thumbnail}}" alt="Thumbnail" style="max-height: 50px; border-radius: 8px;">
+                     </td>
+                     <td>
+                        <p class="ellipsis-2-lines" style="width:250px;">
+                           {{this.title}}
+                        </p>
+                     </td>
+                     <td>
+                        {{this.tag}}
+                     </td>
+                     <td>
+                        <p class="ellipsis-2-lines" style="width:200px;">
+                           {{this.content}}
+                        </p>
+                     </td>
+                     <td>
+                        {{this.uploader_name}}
+                     </td>
+                     <td class="d-flex gap-2">
+                        <div class="ellipsis-2-lines">
+                           <a href="/admin/blog/edit/{{this.id}}" class="btn btn-sm btn-warning mb-2">Edit</a>
+                           <form action="/services/blog/delete/{{this.id}}" method="POST"
+                              onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
+                              <button class="btn btn-sm btn-danger mb-2" type="submit"> <i
+                                    class="bi bi-trash me-2"></i>Hapus</button>
+                           </form>
+                        </div>
+                     </td>
+                  </tr>
+                  {{/each}}
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

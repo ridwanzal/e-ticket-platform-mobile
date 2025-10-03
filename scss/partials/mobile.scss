@@ -1,0 +1,524 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+
+.bottom-nav .nav-item {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: #666;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+}
+
+.bottom-nav .nav-item .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-nav .nav-item svg {
+  display: block;
+  margin: 0 auto 3px;
+}
+
+.bottom-nav .nav-item.active,
+.bottom-nav .nav-item:hover {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.bottom-nav .nav-item.active svg,
+.bottom-nav .nav-item:hover svg {
+  fill: #007bff;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+.nav-item i {
+  font-size: 1.2rem;
+  display: block;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: #2196f3;
+}
+
+body {
+  padding-bottom: 60px; /* Prevent content overlap */
+}
+
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2196f3;
+  color: white;
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+}
+
+.mobile-header .menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.app-title {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: white;
+  padding: 1rem;
+  transition: left 0.3s ease;
+  z-index: 1200;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.side-nav a {
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+
+.side-nav a:hover {
+  color: #2196f3;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1100;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* HEADER */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #195dc3;
+  padding: 14px 14px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.app-logo {
+  width: 36px;
+  height: 100%;
+  margin-right: 0.5rem;
+}
+
+.app-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.header-right .user-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 800px; /* adjust as needed */
+  margin: auto;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel > div {
+  flex: 0 0 100%;
+}
+
+.carousel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  background: none; /* reset */
+}
+
+/* Left gradient (prev) */
+.carousel-prev {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  border-radius: 0 6px 6px 0;
+}
+
+/* Right gradient (next) */
+.carousel-next {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  border-radius: 6px 0 0 6px;
+}
+
+/* CARD MENU */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+
+  .menu-card {
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+.menu-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #f8f8f8;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+
+  &:focus {
+    background-color: #f9f9f9;
+    background-color: #fff;
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.menu-card i {
+  font-size: 1.5rem;
+  color: #2196f3;
+  margin-bottom: 0.5rem;
+}
+
+.menu-card span {
+  display: block;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* ARTICLE LIST */
+.section-title {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.article-list {
+  padding-bottom: 1rem;
+}
+
+.article-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin: 0.5rem 1rem;
+  transition: transform 0.2s ease;
+}
+
+.article-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.article-content {
+  padding: 0.75rem;
+}
+
+.article-content h3 {
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  color: #222;
+}
+
+.article-content p {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+}
+
+.iframe-wrap {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 ratio */
+  background: #f4f4f4;
+}
+
+.iframe-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.fallback-msg {
+  display: none;
+  padding: 16px;
+  text-align: center;
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+  margin-top: 8px;
+}
+
+#preloader {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 120px);
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #ddd;
+  border-top: 1px solid #007bff;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pdf-card {
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.1s ease-in-out;
+}
+.pdf-card:hover {
+  transform: scale(1.01);
+}
+.pdf-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #333;
+}
+.pdf-open-btn {
+  font-size: 0.9rem;
+  width: auto !important;
+}
+
+.backdrop {
+  background-color: #195dc3;
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Hasil Pencarian */
+.search-results {
+  margin-top: 24px;
+}
+.ticket-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  transition: all 0.25s ease-in-out;
+}
+.ticket-card:hover {
+  transform: translateY(-3px);
+}
+.ticket-header {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+.ticket-detail {
+  font-size: 0.9rem;
+  color: #666;
+}
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.ticket-price {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #0d6efd;
+}
+.btn-book {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 6px 16px;
+}
+
+/** form pesan **/
+/* ====== Form Pesan (Custom Style) ====== */
+.form-pesan {
+  border-radius: 8px; /* sedikit rounded, modern */
+}
+
+/* Nav Tabs */
+.form-pesan .nav-tabs {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.form-pesan .nav-tabs .nav-link {
+  border: none;
+  font-weight: 500;
+  color: #6b7280; /* abu elegan */
+  padding: 0.75rem 1rem;
+  border-radius: 6px 6px 0 0;
+  background-color: transparent;
+}
+
+.form-pesan .nav-tabs .nav-link.active {
+  color: #0d6efd; /* primary blue */
+  background-color: #fff;
+}
+
+/* Card */
+.form-pesan .card {
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* Input Group */
+.form-pesan .input-group .input-group-text {
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-right: 0;
+  border-radius: 6px 0 0 6px;
+  color: #6b7280;
+}
+
+.form-pesan .form-control {
+  border: 1px solid #d1d5db;
+  border-left: 0;
+  border-radius: 0 6px 6px 0;
+  padding: 0.6rem 0.75rem;
+  box-shadow: none !important;
+}
+
+.form-pesan .form-control:focus {
+  border-color: #0d6efd;
+  outline: none;
+}
+
+/* Button Cari Tiket */
+.form-pesan button[type="submit"] {
+  border-radius: 6px;
+  font-weight: 600;
+  padding: 0.75rem;
+}
+
+/** end form pesan **/

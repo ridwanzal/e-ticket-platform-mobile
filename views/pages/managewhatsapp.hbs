@@ -1,0 +1,39 @@
+<div class="container">
+  <h5 class="card-title fw-bold text-dark mt-4 mb-3">Nomor Whatsapp</h5>
+  {{#if flash}}
+  <div class="alert alert-{{flash.type}} alert-dismissible fade show" role="alert">
+    {{{flash.message}}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{/if}}
+
+  <form action="/services/whatsapp/add" method="POST">
+    <div class="form-group mb-2">
+      <label class="form-label fw-semibold text-dark">Nomor Whatsapp</label>
+      <input type="number" class="form-control" name="nomor_handphone" placeholder="Masukkan nomor whatsapp" required>
+    </div>
+
+    <div class="d-grid mt-4">
+      <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row">
+    {{#if whatsapp.length}}
+    <h5 class="fw-bold text-dark mt-5 mb-3">Nomor yg dipakai</h5>
+    {{#each whatsapp}}
+    <div class="col-md-4 col-sm-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h6 class="card-title text-dark fw-semibold mb-0"><i class="bi bi-phone"></i> 0{{this.nomor_handphone}}</h6>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <p class="text-muted">Belum ada nomor yang diupdate.</p>
+    {{/if}}
+  </div>
+</div>

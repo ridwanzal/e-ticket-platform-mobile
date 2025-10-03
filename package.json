@@ -1,0 +1,62 @@
+{
+	"name": "express-hbars-rwz",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"dev-revision": "chokidar 'public/stylesheets/index.min.css' 'public/javascripts/bundle.min.js' -c 'node scripts/revision.js'",
+		"start": "npm-run-all --parallel sass uglify dev-revision serve",
+		"serve": "nodemon ./bin/app-edu",
+		"sass": "sass --watch scss/style.scss --style compressed public/stylesheets/index.min.css",
+		"uglify": "uglifyjs ./public/javascripts/base/a-jquery.min.js ./public/javascripts/base/b-popper.min.js ./public/javascripts/base/c-bootstrap.min.js ./public/javascripts/base/d-aos.min.js ./public/javascripts/base/e-swiper.min.js ./public/javascripts/base/f-match-height.min.js ./public/javascripts/base/g-lightbox.js ./public/javascripts/main.js -o ./public/javascripts/bundle.min.js",
+		"build": "node scripts/revision.js && npm-run-all sass uglify",
+		"prod": "npm-run-all --parallel sass uglify prod-serve",
+		"prod-serve": "pm2 ./bin/app-edu --quiet",
+		"debug": "npm-run-all --parallel sass debug-serve",
+		"debug-serve": "nodemon --inspect ./bin/app-edu"
+	},
+	"dependencies": {
+		"bcrypt": "^5.1.0",
+		"body-parser": "^1.20.1",
+		"compression": "^1.8.1",
+		"cookie-parser": "~1.4.4",
+		"dayjs": "^1.11.13",
+		"dayjs-plugin-utc": "^0.1.2",
+		"debug": "~2.6.9",
+		"dotenv": "^16.0.3",
+		"express": "^4.21.2",
+		"express-mysql-session": "^3.0.3",
+		"express-session": "^1.17.3",
+		"ffmpeg-static": "^5.2.0",
+		"ffprobe-static": "^3.1.0",
+		"fluent-ffmpeg": "^2.1.3",
+		"formidable": "^2.1.1",
+		"fs": "^0.0.1-security",
+		"hbs": "^4.2.0",
+		"http-errors": "~1.6.3",
+		"install": "^0.13.0",
+		"lodash": "^4.17.21",
+		"marked": "^4.2.12",
+		"morgan": "~1.9.1",
+		"multer": "^1.4.5-lts.1",
+		"mysql": "^2.18.1",
+		"mysql2": "^3.14.1",
+		"nodemon": "^3.1.10",
+		"npm": "^11.3.0",
+		"npm-check-updates": "^16.3.25",
+		"pdf-lib": "^1.17.1",
+		"pdfjs-dist": "^4.8.69",
+		"rss-parser": "^3.13.0",
+		"sass": "^1.55.0",
+		"sharp": "^0.34.3",
+		"spdy": "^4.0.2"
+	},
+	"devDependencies": {
+		"chokidar-cli": "^3.0.0",
+		"npm-run-all": "^4.1.5",
+		"uglify-js": "^3.19.2",
+		"uglifyjs-folder": "^3.3.0"
+	},
+	"volta": {
+		"node": "18.20.8"
+	}
+}

@@ -1,0 +1,5 @@
+.custom-modal{
+  @media #{$media-not-desktop}{
+    min-height: unset !important;
+  }
+}
